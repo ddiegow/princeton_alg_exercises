@@ -1,11 +1,12 @@
 import java.util.Iterator;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Deque<Item> implements Iterable<Item> {
 
-    Node first;
-    Node last;
-    Node beforeLast;
-    int size = 0;
+    private Node first;
+    private Node last;
+    private Node beforeLast;
+    private int size = 0;
     private class Node {
         Item item = null;
         Node next = null;
@@ -153,37 +154,47 @@ public class Deque<Item> implements Iterable<Item> {
     // unit testing (required)
     public static void main(String[] args) {
         Deque<Integer> deque= new Deque<Integer>();
-        System.out.println("Adding elements...");
+        StdOut.println("Adding elements mixing addFirst and addLast...");
         deque.addFirst(2);
         deque.addFirst(1);
         deque.addLast(3);
         deque.addFirst(0);
         deque.addLast(4);
-        System.out.println("Removing elements from beginning of the list");
-        System.out.println(deque.removeFirst());
-        System.out.println(deque.removeFirst());
-        System.out.println(deque.removeFirst());
-        System.out.println(deque.removeFirst());
-        System.out.println(deque.removeFirst());
-        System.out.println("Adding elements...");
+        StdOut.println("Removing elements from beginning of the list");
+        StdOut.println(deque.removeFirst());
+        StdOut.println(deque.removeFirst());
+        StdOut.println(deque.removeFirst());
+        StdOut.println(deque.removeFirst());
+        StdOut.println(deque.removeFirst());
+        StdOut.println("Adding elements mixing addFirst and addLast...");
         deque.addFirst(2);
         deque.addFirst(1);
         deque.addLast(3);
         deque.addFirst(0);
         deque.addLast(4);
-        Iterator iterator = deque.iterator();
-        System.out.println("------");
-        System.out.println("Deque content: ");
+        Iterator<Integer> iterator = deque.iterator();
+        StdOut.println();
+        StdOut.println("Deque content using single iterator: ");
         while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+            StdOut.println(iterator.next());
         }
-        System.out.println("------");
-        System.out.println("Removing elements from end of the list");
-        System.out.println(deque.removeLast());
-        System.out.println(deque.removeLast());
-        System.out.println(deque.removeLast());
-        System.out.println(deque.removeLast());
-        System.out.println(deque.removeLast());
+        StdOut.println();
+        StdOut.println("Removing elements from end of the list");
+        StdOut.println(deque.removeLast());
+        StdOut.println(deque.removeLast());
+        StdOut.println(deque.removeLast());
+        StdOut.println(deque.removeLast());
+        StdOut.println(deque.removeLast());
+        StdOut.println("Parallel iterators");
+        for (int i = 0; i < 10; i++) {
+            deque.addLast(i);
+        }
+        for (int a: deque) {
+            for (int b: deque) {
+                StdOut.print(a + "-" + b + " ");
+            }
+            StdOut.println();
+        }
     }
 
 
