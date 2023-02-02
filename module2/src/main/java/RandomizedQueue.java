@@ -12,7 +12,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     }
 
-    private Item[] resize(Item[] queue, int newSize) {
+    private void resize(int newSize) {
         Item[] tmp = (Item[]) new Object[newSize];
         for (int i = 0, j = 0; i < queue.length; i++) {
             if (queue[i] != null) {
@@ -20,13 +20,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
 
         }
-        return tmp;
+        queue = tmp;
     }
-
     private int getRandomPosition(Item[] queue) {
-        int randomPosition = StdRandom.uniformInt(0, queue.length - 1);
+        int randomPosition = StdRandom.uniformInt(queue.length - 1);
         while (queue[randomPosition] == null) {
-            randomPosition = StdRandom.uniformInt(0, queue.length - 1);
+            randomPosition = StdRandom.uniformInt(queue.length - 1);
         }
         return randomPosition;
     }
@@ -47,7 +46,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             throw new IllegalArgumentException();
         }
         if (queue[queue.length - 1] != null) {
-            queue = resize(queue, queue.length * 2);
+            resize(queue.length * 2);
         }
         queue[size++] = item;
 
@@ -60,10 +59,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         int randomPosition = getRandomPosition(queue);
         Item item = queue[randomPosition];
-        queue[randomPosition] = null;
+        if (randomPosition != size - 1) {
+            queue[randomPosition] = queue[size-1];
+        }
+        queue[size-1] = null;
         size--;
-        if (size <= queue.length / 4) {
-            queue = resize(queue, queue.length / 2);
+        if (size > 0 && size <= queue.length / 4) {
+            resize(queue.length / 2);
         }
         return item;
     }
@@ -91,6 +93,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                 if (queue[i] != null) {
                     iteratorQueue.enqueue(queue[i]);
                 }
+
             }
         }
 
@@ -119,9 +122,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         for (int i = 0; i < 10; i++) {
             randomizedQueue.enqueue(i);
         }
+        StdOut.println("Using iterator: ");
+        Iterator<Integer> iterator = randomizedQueue.iterator();
+        while (iterator.hasNext()) {
+            StdOut.println(iterator.next());
+        }
+        StdOut.println("Using single loop: ");
         for (int a : randomizedQueue) {
             StdOut.println(a);
         }
+        StdOut.println("Using two loops:: ");
         for (int a : randomizedQueue) {
             for (int b : randomizedQueue) {
                 StdOut.print(a + "-" + b + " ");
@@ -129,6 +139,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             StdOut.println();
         }
         StdOut.println("Randomized sample: " + randomizedQueue.sample());
+
+        RandomizedQueue<Integer> queue = new RandomizedQueue<>();
+        queue.enqueue(2);
+        queue.enqueue(0);
+        queue.enqueue(4);
+        queue.enqueue(1);
+        queue.iterator();
     }
 
 }
