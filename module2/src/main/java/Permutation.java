@@ -9,7 +9,7 @@ public class Permutation {
             while (!StdIn.isEmpty()) {
                 randomizedQueue.enqueue(StdIn.readString());
             }
-            while (permutations >= 0) {
+            for (int i = 0; i < permutations; i++) {
                 StdOut.println(randomizedQueue.dequeue());
             }
         }

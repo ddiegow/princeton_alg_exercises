@@ -1,4 +1,5 @@
 import java.util.Iterator;
+
 import edu.princeton.cs.algs4.StdOut;
 
 public class Deque<Item> implements Iterable<Item> {
@@ -7,16 +8,19 @@ public class Deque<Item> implements Iterable<Item> {
     private Node last;
     private Node beforeLast;
     private int size = 0;
+
     private class Node {
         Item item = null;
         Node next = null;
     }
+
     // construct an empty deque
     public Deque() {
         first = null;
         last = null;
         beforeLast = null;
     }
+
     // is the deque empty?
     public boolean isEmpty() {
         return first == null;
@@ -36,8 +40,7 @@ public class Deque<Item> implements Iterable<Item> {
             first = new Node();
             first.item = item;
             last = first;
-        }
-        else {
+        } else {
             Node tmp = first;
             Node newElement = new Node();
             newElement.item = item;
@@ -60,15 +63,13 @@ public class Deque<Item> implements Iterable<Item> {
             first = new Node();
             first.item = item;
             last = first;
-        }
-        else if (size() == 1){
+        } else if (size() == 1) {
             Node newElement = new Node();
             newElement.item = item;
             first.next = newElement;
             last = newElement;
             beforeLast = first;
-        }
-        else {
+        } else {
             Node newElement = new Node();
             newElement.item = item;
             last.next = newElement;
@@ -83,18 +84,16 @@ public class Deque<Item> implements Iterable<Item> {
         if (isEmpty()) {
             throw new java.util.NoSuchElementException();
         }
-        Item  item= first.item;
+        Item item = first.item;
         if (size() == 1) {
             first = null;
             last = null;
             beforeLast = null;
-        }
-        else if (size() == 2) {
+        } else if (size() == 2) {
             beforeLast = null;
             first = first.next;
 
-        }
-        else {
+        } else {
             first = first.next;
         }
         size--;
@@ -106,18 +105,16 @@ public class Deque<Item> implements Iterable<Item> {
         if (isEmpty()) {
             throw new java.util.NoSuchElementException();
         }
-        Item  item= last.item;
+        Item item = last.item;
         if (size() == 1) {
             first = null;
             last = null;
             beforeLast = null;
-        }
-        else if (size() == 2) {
+        } else if (size() == 2) {
             last = first;
             beforeLast = null;
-        }
-        else {
-            Node iterator= first;
+        } else {
+            Node iterator = first;
             while (iterator.next != beforeLast) {
                 iterator = iterator.next;
             }
@@ -132,6 +129,7 @@ public class Deque<Item> implements Iterable<Item> {
     public Iterator<Item> iterator() {
         return new DequeIterator();
     }
+
     private class DequeIterator implements Iterator<Item> {
         private Node current = first;
 
@@ -139,10 +137,12 @@ public class Deque<Item> implements Iterable<Item> {
         public boolean hasNext() {
             return current != null;
         }
+
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
         @Override
         public Item next() {
             if (current == null) {
@@ -156,7 +156,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-        Deque<Integer> deque= new Deque<Integer>();
+        Deque<Integer> deque = new Deque<Integer>();
         StdOut.println("Adding elements mixing addFirst and addLast...");
         deque.addFirst(2);
         deque.addFirst(1);
@@ -192,8 +192,8 @@ public class Deque<Item> implements Iterable<Item> {
         for (int i = 0; i < 10; i++) {
             deque.addLast(i);
         }
-        for (int a: deque) {
-            for (int b: deque) {
+        for (int a : deque) {
+            for (int b : deque) {
                 StdOut.print(a + "-" + b + " ");
             }
             StdOut.println();

@@ -1,17 +1,20 @@
 import java.util.Iterator;
+
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] queue = (Item[]) new Object[2];
     private int size = 0;
+
     // construct an empty randomized queue
     public RandomizedQueue() {
 
     }
+
     private Item[] resize(Item[] queue, int newSize) {
         Item[] tmp = (Item[]) new Object[newSize];
-        for (int i = 0,  j = 0; i < queue.length; i++) {
+        for (int i = 0, j = 0; i < queue.length; i++) {
             if (queue[i] != null) {
                 tmp[j++] = queue[i];
             }
@@ -19,6 +22,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         return tmp;
     }
+
     private int getRandomPosition(Item[] queue) {
         int randomPosition = StdRandom.uniformInt(0, queue.length - 1);
         while (queue[randomPosition] == null) {
@@ -26,6 +30,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         return randomPosition;
     }
+
     // is the randomized queue empty?
     public boolean isEmpty() {
         return size() == 0;
@@ -57,8 +62,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item item = queue[randomPosition];
         queue[randomPosition] = null;
         size--;
-        if (size <= queue.length/4) {
-            queue = resize(queue, queue.length/2);
+        if (size <= queue.length / 4) {
+            queue = resize(queue, queue.length / 2);
         }
         return item;
     }
@@ -80,6 +85,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private class RandomQueueIterator implements Iterator<Item> {
         RandomizedQueue<Item> iteratorQueue = new RandomizedQueue<>();
+
         public RandomQueueIterator() {
             for (int i = 0; i < queue.length; i++) {
                 if (queue[i] != null) {
@@ -87,10 +93,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                 }
             }
         }
+
         @Override
         public boolean hasNext() {
             return !iteratorQueue.isEmpty();
         }
+
         @Override
         public Item next() {
             if (iteratorQueue.isEmpty()) {
@@ -98,6 +106,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
             return iteratorQueue.dequeue();
         }
+
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
@@ -110,11 +119,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         for (int i = 0; i < 10; i++) {
             randomizedQueue.enqueue(i);
         }
-        for (int a: randomizedQueue) {
+        for (int a : randomizedQueue) {
             StdOut.println(a);
         }
-        for (int a: randomizedQueue) {
-            for (int b: randomizedQueue) {
+        for (int a : randomizedQueue) {
+            for (int b : randomizedQueue) {
                 StdOut.print(a + "-" + b + " ");
             }
             StdOut.println();
