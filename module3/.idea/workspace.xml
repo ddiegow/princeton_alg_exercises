@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +87,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "Z:/princeton_alg_exercises/.gitignore"
+    "last_opened_file_path": "Z:/princeton_alg_exercises"
   }
 }]]></component>
   <component name="RunManager">
@@ -110,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675520154460</updated>
       <workItem from="1675520155668" duration="2055000" />
-      <workItem from="1676115217086" duration="6555000" />
+      <workItem from="1676115217086" duration="6590000" />
     </task>
     <servers />
   </component>
