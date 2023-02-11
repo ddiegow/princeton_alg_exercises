@@ -8,7 +8,6 @@
 .idea/**/dictionaries
 .idea/**/shelf
 /sync.ffs_db
-/**/sync.ffs_db
 # AWS User-specific
 .idea/**/aws.xml
 
