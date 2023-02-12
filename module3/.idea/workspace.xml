@@ -1,7 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
+    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/FastCollinearPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Algorithms, Part I.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Algorithms, Part I.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BruteCollinearPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/BruteCollinearPoints.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BruteCollinearPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/BruteCollinearPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Point$SlopeComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/Point$SlopeComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/equidistant.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid4x4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid5x5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid6x6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/horizontal100.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/horizontal25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/horizontal5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/horizontal50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/horizontal75.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inarow.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input100.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input1000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input10000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input150.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input2000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input250.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input299.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input300.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input3000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input350.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input4000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input5000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input56.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input6000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input80.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input8000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kw1260.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mystery10089.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/random152.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/random23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/random38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/random91.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rs1423.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rs1423.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vertical100.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vertical25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vertical5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vertical50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vertical75.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,23 +156,35 @@
     <option name="showModules" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "Z:/princeton_alg_exercises"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;Z:/princeton_alg_exercises/module3&quot;
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="BruteCollinearPoints" type="Application" factoryName="Application" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="Application.FastCollinearPoints">
+    <configuration name="BruteCollinearPoints" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="BruteCollinearPoints" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="input50.txt" />
+      <option name="PROGRAM_PARAMETERS" value="input5000.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FastCollinearPoints" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FastCollinearPoints" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="rs1423.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.FastCollinearPoints" />
+      <item itemvalue="Application.BruteCollinearPoints" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,6 +195,8 @@
       <updated>1675520154460</updated>
       <workItem from="1675520155668" duration="2055000" />
       <workItem from="1676115217086" duration="6590000" />
+      <workItem from="1676129542691" duration="629000" />
+      <workItem from="1676198444062" duration="16319000" />
     </task>
     <servers />
   </component>

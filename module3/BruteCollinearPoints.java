@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BruteCollinearPoints {
-    ArrayList<LineSegment> segments = new ArrayList<>();
+    private ArrayList<LineSegment> segments = new ArrayList<>();
 
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
@@ -56,9 +56,11 @@ public class BruteCollinearPoints {
     }
 
     private boolean hasNullPoint(Point[] points) {
-        for (int i = 0; i < points.length - 1; i++)
-            if (points[i] == null) // Points cannot be null
+        for (int i = 0; i < points.length; i++) {
+            if (points[i] == null) { // Points cannot be null
                 return true;
+            }
+        }
         return false;
     }
 
