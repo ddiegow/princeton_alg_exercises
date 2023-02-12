@@ -1,6 +1,14 @@
 # Completed exercises for the Princeton University Algorithms I Course
 
-## Exercise 1 - Percolation
+## Module 1 - Percolation
 
-Completed with 90/100 score. Still need to fix a few things (memory use, backwash problems, etc) to try and pass remaning tests.
+Completed with 90/100 score.
+
+## Module 2 - Queues
+
+Completed with 91/100 score.
+
+## Module 3 - Collinear Points
+
+Completed with 94/100 score.
 
