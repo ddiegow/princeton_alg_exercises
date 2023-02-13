@@ -20,22 +20,27 @@ public class FastCollinearPoints {
                     "User provided two points with the same coordinates");
 
         for (int i = 0; i < points.length; i++) {
-            Point p = points[i];
+            Point p = points[i]; // The point we're using as reference.
             Point[] pointsCopy = new Point[points.length - 1];
-            for (int j = 0, k = 0; j < points.length; j++) {
+            for (int j = 0, k = 0; j < points.length;
+                 j++) { // Copy all elements except p to not need comparing it to each point later on.
                 if (points[j] != points[i]) {
                     pointsCopy[k++] = points[j];
                 }
             }
-            Arrays.sort(pointsCopy, p.slopeOrder());
-            for (int j = 0; j < pointsCopy.length; j++) {
-                if (j < pointsCopy.length - 1) {
-                    Point currentPoint = pointsCopy[j];
-                    Point nextPoint = pointsCopy[j + 1];
-                    if (p.slopeTo(currentPoint) == p.slopeTo(nextPoint)) {
-                        ArrayList<Point> segmentPoints = new ArrayList<>();
-                        segmentPoints.add(p);
-                        segmentPoints.add(currentPoint);
+            Arrays.sort(pointsCopy, p.slopeOrder()); // Sort by slope.
+            for (int j = 0; j < pointsCopy.length;
+                 j++) { // Go through all elements in our sorted list.
+                if (j < pointsCopy.length
+                        - 1) { // Be careful we haven't reached the last one.  If so, we can't compare to a non-existing next one.
+                    Point currentPoint = pointsCopy[j]; // The current point we're checking.
+                    Point nextPoint = pointsCopy[j + 1]; // The next point we want to compare to.
+                    if (p.slopeTo(currentPoint) == p.slopeTo(
+                            nextPoint)) { // If they have the same slope towards p.
+                        ArrayList<Point> segmentPoints
+                                = new ArrayList<>(); // Create a temporary segment point list.
+                        segmentPoints.add(p); // Add the first point
+                        segmentPoints.add(currentPoint); // Add the current point we've checked
                         while (j < pointsCopy.length - 1 && segmentPoints.size() <= 4
                                 && p.slopeTo(currentPoint) == p.slopeTo(nextPoint)) {
                             segmentPoints.add(nextPoint);
