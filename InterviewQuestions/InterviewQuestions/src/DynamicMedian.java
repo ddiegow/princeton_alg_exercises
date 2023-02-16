@@ -37,6 +37,11 @@ public class DynamicMedian<Key extends Comparable> {
         private final int maxNodes;
 
         private final Comparator comparator;
+        public PriorityQueue(int maxNodes, Comparator comparator) {
+            this.maxNodes = maxNodes;
+            this.keys = (Key[]) new Comparable[maxNodes + 1];
+            this.comparator = comparator;
+        }
 
         /**
          * Create priority queue
@@ -99,8 +104,8 @@ public class DynamicMedian<Key extends Comparable> {
         }
 
         /**
-         *
-         * @return
+         * Extract the root element from the binary tree and reconfigure the tree
+         * @return root element of binary tree
          */
         Key poll() {
             if (N == 0) {
@@ -133,69 +138,92 @@ public class DynamicMedian<Key extends Comparable> {
                 k = child; // repeat with child
             }
         }
+
+        /**
+         * Take a look at the root element
+         * @return root element of the binary tree
+         */
+        public Key peek() {
+            if (N == 0) {
+                return null;
+            }
+            return keys[1];
+        }
         public int size() {
-            return N - 1;
+            return N;
         }
     }
 
 
     /**
-     * Constructor that creates two binary trees to hold max and min values
-     * @param keys keys that we want to insert in the binary trees
+     * Constructor that inserts keys into the max pq or the min pq according to the following criteria:
+     *      - If none of the other rules apply, insert by default into max pq
+     *      - If the key to insert is bigger than the key obtained by peeking into min pq, insert into min pq
+     *      - If one of the queues is bigger than the other by two keys or more, poll the bigger queue and insert into smaller queue
+     * Time complexity: O(log n)
+     * @param keys keys that we want to insert into the queues
      */
     public DynamicMedian(Key[] keys) {
         MoreComparator moreComparator = new MoreComparator();
         LessComparator lessComparator = new LessComparator();
-        pqMax = new PriorityQueue(keys, moreComparator);
-        pqMin = new PriorityQueue(keys, lessComparator);
+        pqMax = new PriorityQueue(keys.length, moreComparator);
+        pqMin = new PriorityQueue(keys.length, lessComparator);
+        for (int i = 0; i < keys.length; i++) {
+            if (pqMax.size() <= 1 && pqMin.size() == 0) { // if max pq has one element or less and min pq has none
+                pqMax.insert(keys[i]); // insert into max pq
+            }
+            else {
+                // if the minimum item is less than the key, insert in min pq
+                if (pqMin.peek().compareTo(keys[i]) < 0) {
+                    pqMin.insert(keys[i]);
+                }
+                // if not, insert in max pq
+                else {
+                    pqMax.insert(keys[i]);
+                }
+            }
+            // Check sizes
+            if (pqMax.size() - pqMin.size() >= 2) { // if max pq size is bigger
+                pqMin.insert(pqMax.poll()); // insert max key in min pq
+            }
+            else if (pqMin.size() - pqMax.size() >=2) { // if min pq size is bigger
+                pqMax.insert(pqMin.poll()); // insert min key in max pq
+            }
+        }
     }
 
 
 
     /**
-     * Find the median, remove it from the list and return it to user
-     * @return
+     * Find the median.  If the priority queues are different sizes, the median is in the min priority queue.
+     * If they are the same size, the median is in the max priority queue.
+     * @return median of the array the object was created with
      */
     public Key findTheMedian() {
-        Key max = null;
-        Key min = null;
-        if (pqMax.size() < 1) {
-            return pqMax.poll();
-        }
-        if (pqMax.size() % 2 == 0) {
-            max = pqMax.poll();
-            min = pqMin.poll();
-            while (max.compareTo(min) != 0) {
-                max = pqMax.poll();
-                min = pqMin.poll();
-            }
+        if (pqMax.size() == pqMin.size()) {
+            return pqMin.peek();
         }
         else {
-            max = pqMax.poll();
-            max = pqMax.poll();
-            min = pqMin.poll();
-            while (max.compareTo(min) != 0) {
-                max = pqMax.poll();
-                min = pqMin.poll();
-            }
+            return pqMax.peek();
         }
-        return max;
     }
-
+    public Key removeTheMedian() {
+        if (pqMax.size() == pqMin.size()) {
+            return pqMin.poll();
+        }
+        else {
+            return pqMax.poll();
+        }
+    }
     public static void main(String[] args) {
         DynamicMedian dm =  null;
-        dm = new DynamicMedian(new Integer[] {1, 2});
-        System.out.println("Median should be 1: " + dm.findTheMedian());
-        dm = new DynamicMedian(new Integer[] {1, 2, 3});
-        System.out.println("Median should be 2: " + dm.findTheMedian());
-        dm = new DynamicMedian(new Integer[] {1, 2, 3, 4});
-        System.out.println("Median should be 2: " + dm.findTheMedian());
-        dm = new DynamicMedian(new Integer[] {1, 2, 3, 4, 5});
-        System.out.println("Median should be 3: " + dm.findTheMedian());
-        dm = new DynamicMedian(new Integer[] {1, 2, 3, 4, 5, 6});
-        System.out.println("Median should be 3: " + dm.findTheMedian());
-        dm = new DynamicMedian(new Integer[] {1, 2, 3, 4, 5, 6, 7});
-        System.out.println("Median should be 4: " + dm.findTheMedian());
+        dm = new DynamicMedian(new Integer[] {2, 1, 7, 6, 5, 4, 3});
+        // 1 2 3 4 5 6 7
+        System.out.println("Finding the median. Return value should be 4: " + dm.findTheMedian());
+        System.out.println("Removing the median. Return value should be 4: " + dm.removeTheMedian());
+        // 1 2 3 5 6 7
+        System.out.println("Finding the median. Return value should be 3: " + dm.findTheMedian());
+        System.out.println("Removing the median. Return value should be 3: " + dm.removeTheMedian());
 
     }
 }
