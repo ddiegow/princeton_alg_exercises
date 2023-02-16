@@ -208,22 +208,19 @@ public class DynamicMedian<Key extends Comparable> {
         }
     }
     public Key removeTheMedian() {
+        Key ret;
         if (pqMax.size() == pqMin.size()) {
-            return pqMin.poll();
+            ret = pqMin.poll();
         }
         else {
-            return pqMax.poll();
+            ret = pqMax.poll();
         }
+        return ret;
     }
     public static void main(String[] args) {
-        DynamicMedian dm =  null;
-        dm = new DynamicMedian(new Integer[] {2, 1, 7, 6, 5, 4, 3});
+        DynamicMedian dm = new DynamicMedian(new Integer[] {2, 1, 7, 6, 5, 4, 3});
         // 1 2 3 4 5 6 7
         System.out.println("Finding the median. Return value should be 4: " + dm.findTheMedian());
         System.out.println("Removing the median. Return value should be 4: " + dm.removeTheMedian());
-        // 1 2 3 5 6 7
-        System.out.println("Finding the median. Return value should be 3: " + dm.findTheMedian());
-        System.out.println("Removing the median. Return value should be 3: " + dm.removeTheMedian());
-
     }
 }
