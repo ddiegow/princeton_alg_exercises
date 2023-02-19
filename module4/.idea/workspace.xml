@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Solver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Algorithms, Part I.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Algorithms, Part I.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PuzzleChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/PuzzleChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,7 @@
       <updated>1676428197056</updated>
       <workItem from="1676428198305" duration="530000" />
       <workItem from="1676469683239" duration="31000" />
-      <workItem from="1676816071873" duration="6294000" />
+      <workItem from="1676816071873" duration="8194000" />
     </task>
     <servers />
   </component>
@@ -158,16 +156,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Board.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
