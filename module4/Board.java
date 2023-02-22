@@ -7,7 +7,7 @@
 import edu.princeton.cs.algs4.Stack;
 
 public class Board {
-    private int[][] board;
+    final private int[][] board;
     private int n;
 
     private class Coordinates {
@@ -55,8 +55,7 @@ public class Board {
         int hamming = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if ((n * i + j + 1 == n * n && board[i][j] != 0)
-                        || (n * i + j + 1 != n * n && board[i][j] != positionToNumber(i, j))) {
+                if (board[i][j] != 0 && board[i][j] != positionToNumber(i, j)) {
                     hamming++;
                 }
             }
@@ -69,10 +68,13 @@ public class Board {
         int manhattan = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                int distanceX = j - numberToPosition(board[i][j]).j;
-                int distanceY = i - numberToPosition(board[i][j]).i;
-                manhattan += Integer.max(distanceX, -distanceX) + Integer.max(distanceY,
-                                                                              -distanceY);
+                if (board[i][j] != 0) {
+                    int distanceX = j - numberToPosition(board[i][j]).j;
+                    int distanceY = i - numberToPosition(board[i][j]).i;
+                    manhattan += Integer.max(distanceX, -distanceX) + Integer.max(distanceY,
+                                                                                  -distanceY);
+                }
+
             }
         }
         return manhattan;
@@ -80,7 +82,7 @@ public class Board {
 
     // is this board the goal board?
     public boolean isGoal() {
-        return manhattan() == 0;
+        return hamming() == 0;
     }
 
     // does this board equal y?
@@ -88,10 +90,16 @@ public class Board {
         if (y == null) {
             return false;
         }
+        if (y == this) {
+            return true;
+        }
         if (y.getClass() != this.getClass()) {
             return false;
         }
         Board other = (Board) y;
+        if (other.board.length != this.board.length) {
+            return false;
+        }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (this.board[i][j] != other.board[i][j]) {
@@ -108,28 +116,28 @@ public class Board {
         Coordinates zero = findZero();
 
         if (zero.i > 0) { // we can look below
-            int[][] boardCopy = board.clone();
+            int[][] boardCopy = copyArray(board);
             int tmp = boardCopy[zero.i][zero.j];
             boardCopy[zero.i][zero.j] = boardCopy[zero.i - 1][zero.j];
             boardCopy[zero.i - 1][zero.j] = tmp;
             iterable.push(new Board(boardCopy));
         }
         if (zero.i < n - 1) { // we can look above
-            int[][] boardCopy = board.clone();
+            int[][] boardCopy = copyArray(board);
             int tmp = boardCopy[zero.i][zero.j];
             boardCopy[zero.i][zero.j] = boardCopy[zero.i + 1][zero.j];
             boardCopy[zero.i + 1][zero.j] = tmp;
             iterable.push(new Board(boardCopy));
         }
         if (zero.j > 0) { // we can look to the left
-            int[][] boardCopy = board.clone();
+            int[][] boardCopy = copyArray(board);
             int tmp = boardCopy[zero.i][zero.j];
             boardCopy[zero.i][zero.j] = boardCopy[zero.i][zero.j - 1];
             boardCopy[zero.i][zero.j - 1] = tmp;
             iterable.push(new Board(boardCopy));
         }
         if (zero.j < n - 1) { // we can look to the right
-            int[][] boardCopy = board.clone();
+            int[][] boardCopy = copyArray(board);
             int tmp = boardCopy[zero.i][zero.j];
             boardCopy[zero.i][zero.j] = boardCopy[zero.i][zero.j + 1];
             boardCopy[zero.i][zero.j + 1] = tmp;
@@ -139,9 +147,33 @@ public class Board {
         return iterable;
     }
 
-    // a board that is obtained by exchanging any pair of tiles
+    /**
+     * Return a board that is obtained by exchanging any pair of tiles
+     * As we know that n >= 2, just check the 4 tiles adjacent to top left corner
+     *
+     * @return A twin board with two pairs of tiles swapped
+     */
     public Board twin() {
-        return null;
+        int[][] boardCopy = copyArray(board);
+        if (boardCopy[0][0] != 0) {
+            if (boardCopy[0][1] != 0) {
+                int tmp = boardCopy[0][0];
+                boardCopy[0][0] = boardCopy[0][1];
+                boardCopy[0][1] = tmp;
+            }
+            else {
+                int tmp = boardCopy[0][0];
+                boardCopy[0][0] = boardCopy[1][0];
+                boardCopy[1][0] = tmp;
+            }
+        }
+        else {
+            int tmp = boardCopy[0][1];
+            boardCopy[0][1] = boardCopy[1][1];
+            boardCopy[1][1] = tmp;
+        }
+
+        return new Board(boardCopy);
     }
 
     private int positionToNumber(int i, int j) {
@@ -168,16 +200,24 @@ public class Board {
         return null;
     }
 
+    private int[][] copyArray(int[][] array) {
+        int[][] tmp = new int[array.length][array.length];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                tmp[i][j] = array[i][j];
+            }
+        }
+        return tmp;
+    }
+
     // unit testing (not graded)
     public static void main(String[] args) {
-        Board board = new Board(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 0 } });
-        System.out.println(board.hamming());
-        System.out.println(board.manhattan());
-        System.out.println(board.isGoal());
-        System.out.println(board);
+        Board board = new Board(new int[][] { { 1, 2, 3 }, { 7, 4, 6 }, { 5, 8, 0 } });
         Iterable<Board> it = board.neighbors();
         for (Board b : it) {
             System.out.println(b);
         }
+
+
     }
 }

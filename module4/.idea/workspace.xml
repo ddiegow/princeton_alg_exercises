@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Board$Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/Board$Coordinates.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PuzzleChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/PuzzleChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PuzzleChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/PuzzleChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +95,19 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;Z:/princeton_alg_exercises/module4&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/princeton_alg_exercises/module4&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Solver" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solver" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="puzzle07.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -106,7 +119,9 @@
       <workItem from="1676469683239" duration="31000" />
       <workItem from="1676816071873" duration="8234000" />
       <workItem from="1676858248446" duration="232000" />
-      <workItem from="1676868369934" duration="5627000" />
+      <workItem from="1676868369934" duration="5695000" />
+      <workItem from="1676904981405" duration="1866000" />
+      <workItem from="1677059892108" duration="11101000" />
     </task>
     <servers />
   </component>
